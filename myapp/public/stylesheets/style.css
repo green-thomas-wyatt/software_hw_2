@@ -1,8 +1,197 @@
+.tooltip {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  white-space: nowrap;
+  z-index: 1000;
+}
+
+/* General Body Styles */
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+header nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Home Page */
+.fav_food {
+  color: #ff6347; /* Tomato color */
+}
+
+h1, h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Recipe Listing Page */
+.recipe-table {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recipe-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-row:hover {
+  background-color: #fafafa;
+}
+
+.recipe-name,
+.recipe-description,
+.recipe-instructions {
+  flex: 1; 
+  padding: 5px;
+  text-align: left;
+}
+
+.recipe-name {
+  font-weight: bold;
+  max-width: 30%; 
+}
+
+.recipe-description {
+  max-width: 40%; 
+}
+
+.recipe-instructions {
+  max-width: 30%; 
+}
+
+.recipe-name a {
+  color: #333;
+  text-decoration: none;
+}
+
+.recipe-name a:hover {
+  text-decoration: underline;
+}
+
+
+/* Add Recipe Page */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+form input[type="text"],
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+form button:hover {
+  background-color: #555;
+}
+
+/* Button Style */
+.box {
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.box:hover {
+  background-color: #e53e3e;
 }
 
 a {
-  color: #00B7FF;
+  text-decoration: none;
+}
+
+button.box {
+  margin: 10px 0;
+  display: block;
+  width: 100%;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 1.5rem;
+  }
+
+  form {
+    padding: 15px;
+  }
+
+  form input[type="text"],
+  form textarea,
+  form select {
+    padding: 8px;
+  }
+
+  .box {
+    padding: 8px 15px;
+  }
+
+  ul li {
+    padding: 10px;
+  }
 }

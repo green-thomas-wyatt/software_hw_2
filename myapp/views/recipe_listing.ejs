@@ -1,0 +1,30 @@
+<%- include('./partials/header') %>
+<body>
+    <h1><%= title %></h1>
+    <a href="/add-recipe">➕ Add a New Recipe</a>
+    <h2>Check Out Some Cool Recipes:</h2>
+
+    <% Object.keys(groupedRecipes).forEach((category) => { %>
+        <h3><%= category %></h3>
+        <div class="recipe-table">
+            <% groupedRecipes[category].forEach((recipe) => { %>
+                <div class="recipe-row">
+                    <div class="recipe-name">
+                        <a href="/recipe/<%= recipe.id %>"><%= recipe.name %></a>
+                    </div>
+                    <div class="recipe-description">
+                        <strong>Description:</strong>
+                        <p><%= recipe.description %></p>
+                    </div>
+                    <div class="recipe-instructions">
+                        <strong>Instructions:</strong>
+                        <p><%= recipe.instructions %></p>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+        <hr />
+    <% }) %>
+</body>
+</html>
+

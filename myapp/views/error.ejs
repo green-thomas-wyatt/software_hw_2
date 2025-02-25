@@ -1,3 +1,48 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error</title>
+    <link rel="stylesheet" href="/styles.css"> <!-- Add a CSS file if needed -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        h1 {
+            color: #d9534f;
+        }
+        p {
+            font-size: 18px;
+        }
+        .error-details {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f8d7da;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>Oops! Something went wrong.</h1>
+    <p>We're sorry for the inconvenience. Please try again later.</p>
+
+    <% if (error && error.message) { %>
+        <div class="error-details">
+            <h2>Error Details:</h2>
+            <p><strong>Message:</strong> <%= error.message %></p>
+            <% if (error.status) { %>
+                <p><strong>Status Code:</strong> <%= error.status %></p>
+            <% } %>
+            <% if (error.stack) { %>
+                <pre><%= error.stack %></pre>
+            <% } %>
+        </div>
+    <% } %>
+
+    <p><a href="/">Go back to Home</a></p>
+</body>
+</html>

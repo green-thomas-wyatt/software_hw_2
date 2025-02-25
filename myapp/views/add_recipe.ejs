@@ -1,0 +1,35 @@
+<%- include('./partials/header') %>
+
+<body>
+    <h1>Add a New Recipe</h1>
+    <form action="/add-recipe" method="POST">
+        <label for="name">Recipe Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="instructions">Instructions:</label>
+        <textarea id="instructions" name="instructions" required></textarea>
+
+        <label for="category">Category:</label>
+        <select id="category" name="category" required>
+            <option value="Chicken">Chicken</option>
+            <option value="Beef">Beef</option>
+            <option value="Tofu">Tofu</option>
+            <option value="Grains">Grains</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label>Ingredients:</label>
+        <% ingredients.forEach((ingredient) => { %>
+            <div>
+                <input type="checkbox" name="ingredient_ids" value="<%= ingredient.id %>">
+                <%= ingredient.name %>
+            </div>
+        <% }) %>
+
+        <button type="submit">Add Recipe</button>
+    </form>
+</body>
+</html>

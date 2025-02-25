@@ -1,0 +1,38 @@
+<%- include('./partials/header') %>  
+<body>
+
+    <h2><%= recipe.name %></h2>
+    <p><%= recipe.description %></p>
+    <p><strong>Instructions:</strong> <%= recipe.instructions %></p>
+    <p><strong>Category:</strong> <%= recipe.category %></p>
+
+    <h3>Ingredients:</h3>
+    <ul>
+        <% recipe.ingredients.forEach((ingredient) => { %>
+            <li class="ingredient" data-info="<%= ingredient.info %>">
+                <span class="ingredient-name"><%= ingredient.name %></span>
+            </li>
+        <% }) %>
+    </ul>
+        <script>
+        document.querySelectorAll(".ingredient").forEach(item => {
+            item.addEventListener("mouseenter", function() {
+                let tooltip = document.createElement("div");
+                tooltip.classList.add("tooltip");
+                tooltip.innerText = this.getAttribute("data-info");
+    
+                document.body.appendChild(tooltip);
+                let rect = this.getBoundingClientRect();
+                tooltip.style.left = rect.left + "px";
+                tooltip.style.top = rect.top - 30 + "px";
+    
+                this.addEventListener("mouseleave", () => {
+                    tooltip.remove();
+                });
+            });
+        });
+    </script>
+    
+    
+</body>
+</html>
