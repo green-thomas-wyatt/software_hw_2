@@ -62,7 +62,7 @@ router.get('/recipe/:id', (req, res) => {
           }))
       };
 
-      console.log(recipe); // ✅ Log to see if ingredients & info are available
+      console.log(recipe); 
 
       res.render('select_recipe', { title: recipe.name, recipe });
   });
